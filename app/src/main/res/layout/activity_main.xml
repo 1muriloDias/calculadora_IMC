@@ -96,6 +96,7 @@
         app:layout_constraintVertical_bias="0.197">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputNome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>

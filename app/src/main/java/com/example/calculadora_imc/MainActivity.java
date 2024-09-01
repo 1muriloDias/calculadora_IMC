@@ -1,4 +1,4 @@
-package br.com.aula.text;
+package com.example.calculadora_imc;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +10,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.calculadora_imc.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.DecimalFormat;
@@ -29,12 +30,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calcularImc(View view){
-        TextInputEditText campoNome = findViewById(R.id.textinputNome);
-        TextInputEditText campoPeso = findViewById(R.id.textinputPeso);
-        TextInputEditText campoAltura = findViewById(R.id.textEditAltura);
+        TextInputEditText campoNome = findViewById(R.id.inputNome);
+        TextInputEditText campoPeso = findViewById(R.id.textinputEditText2);
+        TextInputEditText campoAltura = findViewById(R.id.textinputEditText);
 
-        TextView resultado = findViewById(R.id.textResultado2);
-        TextView resultado2 = findViewById(R.id.textResultado3);
+        TextView resultado = findViewById(R.id.resultado);
+
 
         String nome = campoNome.getText().toString();
         String peso = campoPeso.getText().toString();
@@ -67,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Exibir o resultado e a classificação
-        resultado.setText("IMC: " + imc);
-        resultado2.setText("Classificação: " + classificacao);
+        resultado.setText(imc + classificacao);
+
     }
 
     public void limpaDados(View view){
