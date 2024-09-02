@@ -7,125 +7,126 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Calculadora IMC"
         android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.062" />
-
-    <Button
-        android:id="@+id/calcular"
-        android:layout_width="355dp"
-        android:layout_height="57dp"
-        android:text="Calcular"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutNome"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.741" />
-
-    <Button
-        android:id="@+id/limpar"
-        android:layout_width="325dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:text="Limpar"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.834" />
+        app:layout_constraintVertical_bias="0.2" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/textInputLayoutNome"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="139dp"
-        android:layout_height="62dp"
-        android:hint="altura(cm)"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.172"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Nome"
+        app:layout_constraintTop_toBottomOf="@id/textView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.313">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textinputEditText"
-            android:layout_width="match_parent"
-            android:layout_height="54dp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textinputLayout2"
-        android:layout_width="140dp"
-        android:layout_height="63dp"
-        android:hint="peso(kg)"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.844"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.316">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textinputEditText2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
-        android:layout_width="322dp"
-        android:layout_height="62dp"
-        android:hint="nome"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.197">
+        android:background="@null"
+        app:layout_constraintHorizontal_bias="0.5">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputNome"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:drawableBottom="@drawable/line_divider"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutAltura"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Altura(cm)"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayoutNome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@null"
+        app:layout_constraintHorizontal_bias="0.5">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputAltura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:drawableBottom="@drawable/line_divider"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutPeso"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Peso(kg)"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayoutAltura"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@null"
+        app:layout_constraintHorizontal_bias="0.5">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputPeso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:drawableBottom="@drawable/line_divider"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/resultado"
-        android:layout_width="119dp"
-        android:layout_height="45dp"
-        android:text="@string/result"
-        android:textAlignment="center"
-        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resultado"
+        android:textSize="20sp"
         android:textStyle="bold"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayoutPeso"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="296dp"
-        android:layout_height="59dp"
-        android:text="TextView"
+    <Button
+        android:id="@+id/calcular"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="calcularImc"
+        android:text="Calcular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.596" />
+        app:layout_constraintVertical_bias="0.635" />
 
+    <Button
+        android:id="@+id/limpar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="456dp"
+        android:onClick="limpaDados"
+        android:text="Limpar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.229" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="279dp"
+        android:layout_height="119dp"
+        android:text="@string/resultIMC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.434" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

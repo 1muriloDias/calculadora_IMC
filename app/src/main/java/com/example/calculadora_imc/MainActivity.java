@@ -31,10 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void calcularImc(View view){
         TextInputEditText campoNome = findViewById(R.id.inputNome);
-        TextInputEditText campoPeso = findViewById(R.id.textinputEditText2);
-        TextInputEditText campoAltura = findViewById(R.id.textinputEditText);
-
-        TextView resultado = findViewById(R.id.resultado);
+        TextInputEditText campoAltura = findViewById(R.id.inputAltura);
+        TextInputEditText campoPeso = findViewById(R.id.inputPeso);
+        TextView resultado = findViewById(R.id.textView2);
 
 
         String nome = campoNome.getText().toString();
@@ -73,6 +72,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void limpaDados(View view){
-        // Adicionar lógica para limpar os campos de entrada
+        TextInputEditText campoNome = findViewById(R.id.inputNome);
+        TextInputEditText campoAltura = findViewById(R.id.inputAltura);
+        TextInputEditText campoPeso = findViewById(R.id.inputPeso);
+        TextView resultado = findViewById(R.id.resultado);
+
+        String nome = campoNome.getText().toString();
+        String peso = campoPeso.getText().toString();
+        String altura = campoAltura.getText().toString();
+
+
     }
+
+
 }
