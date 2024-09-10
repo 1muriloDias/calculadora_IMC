@@ -81,6 +81,13 @@ public class MainActivity extends AppCompatActivity {
         String peso = campoPeso.getText().toString();
         String altura = campoAltura.getText().toString();
 
+        // Setar os textos para vazio
+        campoNome.setText("");
+        campoPeso.setText("");
+        campoAltura.setText("");
+        resultado.setText("");
+        resultado2.setText("");
+
 
     }
 
