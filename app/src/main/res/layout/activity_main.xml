@@ -58,8 +58,8 @@
             android:id="@+id/inputAltura"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_background"
             android:layout_margin="30dp"
+            android:background="@drawable/rounded_background"
             android:drawableBottom="@drawable/line_divider" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -129,6 +129,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.815" />
+
+
+    <TextView
+        android:id="@+id/resultado2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Classificação"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.600" />
 
     <TextView
         android:id="@+id/resultado"
