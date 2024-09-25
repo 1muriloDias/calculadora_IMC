@@ -29,67 +29,86 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void calcularImc(View view){
+    public void calcularImc(View view) {
         TextInputEditText campoNome = findViewById(R.id.inputNome);
         TextInputEditText campoAltura = findViewById(R.id.inputAltura);
         TextInputEditText campoPeso = findViewById(R.id.inputPeso);
-        TextView resultado = findViewById(R.id.textView2);
-
+        TextView resultado1 = findViewById(R.id.resultado);   // Campo de erro
+        TextView resultado2 = findViewById(R.id.textView2);   // Campo de resultado
 
         String nome = campoNome.getText().toString();
         String peso = campoPeso.getText().toString();
         String altura = campoAltura.getText().toString();
 
+        // Verifica se os campos estão preenchidos e válidos
+        if (peso.isEmpty() || altura.isEmpty() || !isNumeric(peso) || !isNumeric(altura)) {
+            resultado1.setText("Erro: Entrada inválida.");
+            resultado2.setText("");
+            return;
+        }
+
+        // Converte os valores de peso e altura
         Double numPeso = Double.parseDouble(peso);
-        Double numAltura = Double.parseDouble(altura);
+        Double numAltura = Double.parseDouble(altura) / 100;  // Altura em metros
+
+        // Verifica se peso e altura são maiores que zero
+        if (numAltura <= 0 || numPeso <= 0) {
+            resultado1.setText("Erro: Valores de peso e altura devem ser positivos.");
+            resultado2.setText("");
+            return;
+        }
+
+        // Cálculo do IMC
         Double numImc = numPeso / (numAltura * numAltura);
 
+        // Formatação do valor do IMC
         DecimalFormat df = new DecimalFormat("##.##");
         String imc = df.format(numImc);
 
-        // Determinar a classificação do IMC
+        // Determinar a classificação do IMC conforme OMS
         String classificacao;
 
-        if (numImc < 17) {
-            classificacao = "Muito abaixo do peso";
-        } else if (numImc >= 17 && numImc <= 18.4) {
-            classificacao = "Abaixo do peso";
+        if (numImc < 18.5) {
+            classificacao = "Baixo peso";
         } else if (numImc >= 18.5 && numImc <= 24.9) {
             classificacao = "Peso normal";
         } else if (numImc >= 25 && numImc <= 29.9) {
-            classificacao = "Acima do peso";
+            classificacao = "Sobrepeso";
         } else if (numImc >= 30 && numImc <= 34.9) {
-            classificacao = "Obesidade Grau I";
-        } else if (numImc >= 35 && numImc <= 40) {
-            classificacao = "Obesidade Grau II";
+            classificacao = "Obesidade Grau 1";
+        } else if (numImc >= 35 && numImc <= 39.9) {
+            classificacao = "Obesidade Grau 2";
         } else {
-            classificacao = "Obesidade Grau III";
+            classificacao = "Obesidade Grau 3 (Extrema)";
         }
 
         // Exibir o resultado e a classificação
-        resultado.setText(imc + classificacao);
-
+        resultado1.setText("IMC: " + imc);
+        resultado2.setText("Classificação: " + classificacao);
     }
 
-    public void limpaDados(View view){
+    // Função auxiliar para verificar se a string é um número válido
+    private boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public void limpaDados(View view) {
         TextInputEditText campoNome = findViewById(R.id.inputNome);
         TextInputEditText campoAltura = findViewById(R.id.inputAltura);
         TextInputEditText campoPeso = findViewById(R.id.inputPeso);
-        TextView resultado = findViewById(R.id.resultado);
+        TextView resultado1 = findViewById(R.id.resultado);
+        TextView resultado2 = findViewById(R.id.textView2);
 
-        String nome = campoNome.getText().toString();
-        String peso = campoPeso.getText().toString();
-        String altura = campoAltura.getText().toString();
-
-        // Setar os textos para vazio
+        // Limpar os campos
         campoNome.setText("");
         campoPeso.setText("");
         campoAltura.setText("");
-        resultado.setText("");
+        resultado1.setText("");
         resultado2.setText("");
-
-
     }
-
-
 }
