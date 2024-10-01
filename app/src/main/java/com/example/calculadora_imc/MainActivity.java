@@ -23,6 +23,7 @@ class MainActivity2 extends AppCompatActivity { // Adicionado "public" à classe
     }
 
     private void mostrarSobreposicao() {
-        // Aqui vai o código que você quer executar ao clicar no botão
+       Intent intent = new Intent(MainActivity.this, OutraActivity.class);
+    startActivity(intent);
     }
 }
